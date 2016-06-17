@@ -1,0 +1,65 @@
+div.content {
+  padding-top: $nav-height-medium;
+}
+
+header.site_header {
+  background-color: #CCC;
+  min-height: $nav-height-medium;
+  span.toggle_menu {
+    @include hidden;
+  }
+
+  div.outside {
+    overflow: hidden;
+
+    min-height: $nav-height-medium;
+    @include outer-container;
+  }
+}
+span.stripe { // this is for the menu to hide behind.
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+nav.site-nav {
+  // overriding all of the palm sized styles:
+  position: absolute;
+  display: block;
+  float: left;
+  left: $main_logo_width;
+  top: 0;
+  background: transparent;
+  border-bottom: none;
+
+  ul {
+    position: relative;
+    left: auto;
+    top: auto;
+
+    display: block;
+    float: left;
+    clear: none;
+
+    background: transparent;
+
+    li,
+    li a {
+      display: block;
+      float: left;
+      clear: none;
+      height: $nav-height-medium;
+      line-height: $nav-height-medium;
+      background: rgba(255,255,255, 0.2);
+      width: auto;
+
+
+      .no-touchevents &:hover {
+        background: transparent;
+      }
+    }
+    li a {
+      padding: 0 $main_gutter;
+    }
+  }
+}

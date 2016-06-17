@@ -1,0 +1,6 @@
+
+@import 'basic-structure';
+
+@media($medium-breakpoint) {
+  @import 'basic-structure-medium';
+}
