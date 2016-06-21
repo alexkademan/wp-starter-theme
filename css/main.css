@@ -2770,18 +2770,36 @@ div.content,
     content: "";
     display: block; }
 
-.site-main,
+.left-col,
+.full-width,
 .widget-area {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%; }
-  .site-main:last-child,
+  .left-col:last-child,
+  .full-width:last-child,
   .widget-area:last-child {
     margin-right: 0; }
 
 div.entry-content {
   width: 100% !important; }
+
+@media (min-width: 45em) {
+  .left-col {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    .left-col:last-child {
+      margin-right: 0; }
+  .widget-area {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .widget-area:last-child {
+      margin-right: 0; } }
 
 /* Text meant only for screen readers. */
 .screen-reader-text {

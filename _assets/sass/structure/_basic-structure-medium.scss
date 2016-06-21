@@ -1,6 +1,6 @@
-.site-main {
-  // @include span-columns(8);
+.left-col {
+  @include span-columns(8);
 }
 .widget-area {
-  // @include span-columns(4);
+  @include span-columns(4);
 }

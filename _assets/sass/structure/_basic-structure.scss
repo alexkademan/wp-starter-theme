@@ -6,7 +6,8 @@ div.content,
 
 }
 
-.site-main,
+.left-col,
+.full-width,
 .widget-area {
   @include span-columns(12);
 }
