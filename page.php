@@ -12,10 +12,21 @@
  * @package _s
  */
 
-get_header(); ?>
+
+if($post->post_title == "Home"){
+	$has_sidebar = true;
+
+} else {
+	$has_sidebar = false;
+};
+
+get_header();
+
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+
 
 			<?php
 			while ( have_posts() ) : the_post();
@@ -34,5 +45,7 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+if($has_sidebar) {
+	get_sidebar();
+}
 get_footer();

@@ -1,1 +1,16 @@
+div.content,
+.site-footer {
+  padding-left: $main-gutter;
+  padding-right: $main-gutter;
+  @include outer-container;
 
+}
+
+.site-main,
+.widget-area {
+  @include span-columns(12);
+}
+
+div.entry-content {
+  width: 100% !important; // override for calendar plugin.
+}

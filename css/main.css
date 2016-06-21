@@ -2757,6 +2757,32 @@ html.main_nav_on span.toggle_menu .line-3 {
       nav.site-nav ul li a {
         padding: 0 1.2135em; } }
 
+div.content,
+.site-footer {
+  padding-left: 1.2135em;
+  padding-right: 1.2135em;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto; }
+  div.content::after,
+  .site-footer::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+.site-main,
+.widget-area {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .site-main:last-child,
+  .widget-area:last-child {
+    margin-right: 0; }
+
+div.entry-content {
+  width: 100% !important; }
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
