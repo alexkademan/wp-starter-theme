@@ -26,6 +26,8 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 
 <?php wp_head(); ?>
 <script type='text/javascript' src='<?php echo get_bloginfo('template_url') ?>/js/modernizr-custom.js'></script>
+<link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_url') ?>/favicon.png">
+<link rel="icon" type="image/svg" href="<?php echo get_bloginfo('template_url') ?>/favicon.svg">
 </head>
 
 <body <?php body_class(); ?>>
