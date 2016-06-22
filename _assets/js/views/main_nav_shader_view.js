@@ -15,7 +15,7 @@ module.exports = Backbone.View.extend({
     this.$el = node;
 
     node.onclick = function() {
-      console.log(app.mainNavModel.set({ 'mobileMenu': false }));
+      app.mainNavModel.set({ 'mobileMenu': false });
     }
 
     app.windowStatus.on({
