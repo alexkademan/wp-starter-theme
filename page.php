@@ -13,7 +13,10 @@
  */
 
 
-if($post->post_title == "Home"){
+if(
+	isset($post->post_title)
+	&& $post->post_title == "Home"
+){
 	$has_sidebar = true;
 
 } else {

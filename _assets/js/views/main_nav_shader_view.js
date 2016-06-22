@@ -5,10 +5,8 @@ var _ = require ('underscore');
 var $ = require ('jquery');
 
 module.exports = Backbone.View.extend({
-  // el: '#mobile_shader',
 
   initialize: function() {
-    console.log('mobile_shader');
 
     var node = document.createElement('span');
     node.className = 'mobile_shader';
@@ -19,6 +17,13 @@ module.exports = Backbone.View.extend({
     node.onclick = function() {
       console.log(app.mainNavModel.set({ 'mobileMenu': false }));
     }
+
+    app.windowStatus.on({
+      'change:windowHeight': function(){
+        app.mainNavShader.openShader();
+      }
+    });
+
   },
 
   events: {
@@ -33,7 +38,6 @@ module.exports = Backbone.View.extend({
   },
 
   openShader: function() {
-    console.log(this.$el);
     // this.$el.attr('style', 'height: ' + app.windowStatus.get('documentHeight') + 'px');
     this.$el.setAttribute("style", 'height: ' + app.windowStatus.get('documentHeight') + 'px');
   },
