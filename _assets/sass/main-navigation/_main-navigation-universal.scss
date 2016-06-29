@@ -1,88 +1,48 @@
 div.content {
+  // body needs to clear the main nav:
   padding-top: $nav-height-mobile;
 }
 
-header.site_header {
+/* ***********************
+  basics
+*********************** */
+header.site_header span.stripe {
   height: $nav-height-mobile;
   position: fixed;
   width: 100%;
   background-color: #F4F4F4;
-  z-index: 1000; // always on top !!!
-
-  ul,
-  li {
+  z-index: 1500; // always on top !!!
+  transition: margin 0.5s ease-in-out;
+}
+header.site_header span.main-nav {
+  position: absolute;
+  left:0;
+  top: $nav-height-mobile;
+}
+header.site_header {
+  li,
+  li a {
     display: block;
     float: left;
     clear: left;
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-
-  a.site-title {
-
-    display: inline-block;
-    text-align: center;
-    vertical-align: bottom;
-
-    float: left;
-    clear: none;
-
-    width: $main_logo_width;
-    height: $nav-height-mobile;
-
-  }
-}
-
-span.stripe { // this is for the menu to hide behind.
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $nav-height-mobile;
-  background-color: #F4F4F4;
-  z-index: 1000;
-}
-div.outside {
-  position: relative;
-}
-// mobile menu OFF:
-nav.site-nav {
-  position: absolute;
-  left: 0;
-  top: $nav-height-mobile;
-  width: 100%;
-  overflow: hidden;
-  z-index: 1500;
-  background: #FFF;
-  border-bottom: 1px #000 solid;
-
-  transition: height 0.4s ease-in-out;
-
-  ul {
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
-
-    li,
-    li a {
-      display: block;
-      float: left;
-      clear: left;
-      width: 100%;
-    }
-    li a {
-      padding: $main_gutter;
-    }
   }
 }
+a.site-title {
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
 
-// mobile menu ON:
-html.main_nav_on nav.site-nav {
-  transition: height 0.25s ease-in-out;
+  float: left;
+  clear: none;
+
+  width: $main_logo_width;
+  height: $nav-height-mobile;
+
 }
-
 span.mobile_shader {
   position: fixed;
   left: 0;
@@ -92,13 +52,79 @@ span.mobile_shader {
   background-color: transparent;
   transition: background-color 0.4s ease-in-out;
 
-  html.main_nav_on & {
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: background-color 0.4s ease-in-out;
-  }
+
 }
 
-// classes callout
-a.sign_up_now {
-  display: none;
+/* **********************
+  mobile menu OFF:
+********************** */
+nav.site-nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 0;
+
+  overflow: hidden;
+  z-index: 1000;
+  // background: #FFF;
+  // border-bottom: 1px #000 solid;
+  transition: height 0.25s ease-in-out;
+  li a {
+    padding: $main_gutter;
+  }
+}
+nav.site-nav > span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+}
+nav.site-nav hr {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  height: $nav-height-mobile;
+}
+
+ul.mainNav,
+ul.subNav {
+  display: block;
+  float: left;
+  clear: left;
+  width: 100%;
+}
+ul.mainNav li,
+ul.subNav li,
+ul.mainNav hr {
+  background-color: #FFF;
+}
+ul.subNav li {
+  background: #FCF;
+}
+
+/* **********************
+  mobile menu ON:
+********************** */
+body.main_nav_on nav.site-nav {
+  transition: height 0.5s ease-in-out;
+}
+body.main_nav_on body > div.site {
+  position: fixed;
+}
+body.main_nav_on span.mobile_shader {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.4s ease-in-out;
+}
+
+/* **********************
+  masthead HIDDEN:
+********************** */
+body.hiddenMasthead header.site_header span.stripe {
+  margin-top: -$nav-height-mobile;
 }

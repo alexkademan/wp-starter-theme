@@ -6,6 +6,8 @@ var $ = require ('jquery');
 
 var MainNavShader = require('./main_nav_shader_view');
 var MainMenuHeight = require('./main_nav_heigt_view');
+var NavBackground = require('./main_nav_background');
+var MastheadShowHide = require('./main_nav_masthead');
 
 module.exports = Backbone.View.extend({
 
@@ -26,6 +28,8 @@ module.exports = Backbone.View.extend({
 
     app.mainNavShader = new MainNavShader({model: this.model});
     app.mainMenuHeight = new MainMenuHeight({model: this.model});
+    app.mainNavBackground = new NavBackground();
+    app.mainNavMasthead = new MastheadShowHide();
 
     this.breakpointChange(); // run this once to set the stage.
 
@@ -45,15 +49,22 @@ module.exports = Backbone.View.extend({
     // runs whenever menu is toggled:
     if( app.mainNav.model.get('mobileMenu') === true ){
       // set class for CSS hook:
-      $(document.documentElement).addClass('main_nav_on');
+      $(document.body).addClass('main_nav_on');
       app.mainNavShader.openShader();
       app.mainMenuHeight.openUp();
 
+      var layoutHeight = app.mainMenuHeight.model.get('menuHeight');
+
+      $(document.body).attr('style', 'height: ' + layoutHeight + 'px');
+
     } else {
       // remove class
-      $(document.documentElement).removeClass('main_nav_on');
+      $(document.body).removeClass('main_nav_on');
       app.mainNavShader.closeShader();
       app.mainMenuHeight.closeDown();
+
+      $(document.body).removeAttr('style');
+
     };
   },
 
@@ -89,6 +100,19 @@ module.exports = Backbone.View.extend({
       $('#wpadminbar').removeAttr('style');
 
     };
+  },
+
+  positionMasthead: function(scrollY) {
+    if(scrollY === 0) {
+      // this.$el.removeAttr('style');
+    } else {
+      // if we're not at zero now, make it so.
+      // this keeps the nav from moving away from view:
+      // this.$el.attr('style', 'top: ' + 0 + 'px');
+    }
+
+
+    console.log( this.model.get('menuHeight') );
   }
 
 });

@@ -3,19 +3,11 @@
 class get_main_navigation {
 
   function __construct( ) {
-    $this->full = $this->get_full_navigation(); // find all the root pages
+    // $this->full = $this->get_page_links(); // find all the root pages
 
   }
 
-
-  private function get_full_navigation( $subs = FALSE ) {
-    // find all the root pages:
-    $full = $this->get_pages_info();
-    return $full;
-    // print_r($full);
-  }
-
-  private function get_pages_info( $parent_id = 0 ) {
+  public function get_pages_info( $parent_id = 0 ) {
     // put together an array about all child pages of a specific id:
     if($parent_id == 0) {
   		$pages = get_pages('parent=0');
@@ -27,19 +19,18 @@ class get_main_navigation {
     if( count($pages) > 0 ) { // there ARE some pages so:
       for($i = 0; $i < count($pages); ++$i) { // loop thru 'em:
 
-        if($pages[$i]->post_name != 'home'){
+        if(
+          $pages[$i]->post_name != 'wfca' // the home page name
+          && $pages[$i]->post_name != 'info' // my sub "category" name
+
+          ){
           $list[$i] = $this->gather_page_info($pages[$i]);
         }
       }
 
       if(is_array($list)) {
-        // ksort($list);
-
-        // print_r( $list );
         $list = $this->array_sort($list, 'menu_order');
-
       }
-
       return $list;
     }
   }

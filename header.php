@@ -31,12 +31,11 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="site_header" class="site_header">
 	  <div class="outside">
-	    <span class=stripe>
+	    <span id="mh-stripe" class=stripe>
 
 	      <span class="toggle_menu">
 	        <div class="line line-1"></div>
@@ -48,9 +47,12 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 	      <a class="site-title" href="<?php echo get_bloginfo('wpurl') ?>"><?php echo get_bloginfo('title') ?></a>
 
 	    </span>
+
 			<?php get_template_part( 'template-parts/content', 'main-nav' ); ?>
+
 	  </div>
 
 	</header>
 
+	<div id="page" class="site">
 	<div class="content">

@@ -1,4 +1,5 @@
 div.content {
+  // body needs to clear the main nav:
   padding-top: $nav-height-medium;
 }
 
@@ -8,58 +9,78 @@ header.site_header {
   span.toggle_menu {
     @include hidden;
   }
-
   div.outside {
-    overflow: hidden;
-
+    // overflow: hidden;
     min-height: $nav-height-medium;
     @include outer-container;
   }
+
+  li,
+  li a {
+    width: auto;
+    clear: none;
+  }
 }
-span.stripe { // this is for the menu to hide behind.
+a.site-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+
+  background-color: #FCF;
+
+  width: $main_logo_width;
+  height: $main_logo_width;
+
+}
+
+span.stripe {
+  // this is for the menu to hide behind.
   position: relative;
   width: auto;
   height: auto;
-  overflow: hidden;
 }
 nav.site-nav {
   // overriding all of the palm sized styles:
-  position: absolute;
   display: block;
+  position: relative;
   float: left;
-  left: $main_logo_width;
+  clear: none;
   top: 0;
+  width: 100%;
   background: transparent;
+  z-index: 0; // must fall behind a.site-title.
+  min-height: $nav-height-medium;
   border-bottom: none;
+}
 
-  ul {
-    position: relative;
-    left: auto;
-    top: auto;
+nav.site-nav > span {
+  position: relative;
+}
 
-    display: block;
-    float: left;
-    clear: none;
+ul.mainNav {
 
-    background: transparent;
-
-    li,
-    li a {
-      display: block;
-      float: left;
-      clear: none;
-      height: $nav-height-medium;
-      line-height: $nav-height-medium;
-      background: rgba(255,255,255, 0.2);
-      width: auto;
-
-
-      .no-touchevents &:hover {
-        background: transparent;
-      }
-    }
-    li a {
-      padding: 0 $main_gutter;
+  // background-color: #FCF;
+  li,
+  li a {
+    line-height: $nav-height-medium;
+    padding: 0 $main_gutter;
+    .no-touchevents &:hover {
+      background: #f4f4f4;
     }
   }
+
+  li:first-child {
+    margin-left: $main_logo_width;
+  }
+}
+
+ul.subNav {
+  background-color: transparent;
+  width: auto;
+  display: block;
+
+  float: right;
+  clear: none;
+
 }
