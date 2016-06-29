@@ -26,10 +26,11 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 
 <?php wp_head(); ?>
 <script type='text/javascript' src='<?php echo get_bloginfo('template_url') ?>/js/modernizr-custom.js'></script>
+<link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_url') ?>/favicon.png">
+<link rel="icon" type="image/svg" href="<?php echo get_bloginfo('template_url') ?>/favicon.svg">
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="site_header" class="site_header">
@@ -46,9 +47,12 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 	      <a class="site-title" href="<?php echo get_bloginfo('wpurl') ?>"><?php echo get_bloginfo('title') ?></a>
 
 	    </span>
+
 			<?php get_template_part( 'template-parts/content', 'main-nav' ); ?>
+
 	  </div>
 
 	</header>
 
+	<div id="page" class="site">
 	<div class="content">

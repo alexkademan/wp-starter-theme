@@ -4,7 +4,10 @@ module.exports = Backbone.Model.extend({
 
   defaults: {
     mobileMenu: false,
-    shaderFadeOutTime: 400
+    shaderFadeOutTime: 400,
+    menuHeight: 0, // kinda just another way of saying that the menu is not showing ???
+    backgroundScroll: '' // when menu is opened this is where the page had been scrolled to.
+    // mastheadHeight: ''
   }
 
 });

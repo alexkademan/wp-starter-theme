@@ -16,6 +16,5 @@ module.exports = Backbone.Model.extend({
     fbFeedReady: false,
     fbFeed: '',
     devMode: true
-
   }
 });
