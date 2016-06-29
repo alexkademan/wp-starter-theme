@@ -10,9 +10,14 @@ module.exports = Backbone.View.extend({
 
   initialize: function() {
 
+    app.windowStatus.set({
+      'vScrollLastPosition': $(document).scrollTop()
+    });
+
     this.updatePageSize();
     this.$el.on('resize', this.updatePageSize);
     this.$el.on('scroll', this.updatePageSize);
+
 
   },
 
@@ -39,6 +44,16 @@ module.exports = Backbone.View.extend({
       app.windowStatus.set({'palmSize': true});
     };
 
+    if(vScrollPosition > app.windowStatus.get('vScrollLastPosition')) {
+      var dir = 'down';
+    } else if (vScrollPosition < app.windowStatus.get('vScrollLastPosition')) {
+      var dir = 'up';
+    }
+    if(dir && dir !== app.windowStatus.get('vScrollDirection')) {
+      app.windowStatus.set({ vScrollDirection: dir });
+    }
+    // done checking, so set last scroll position:
+    app.windowStatus.set({ vScrollLastPosition: vScrollPosition });
   }
 
 });

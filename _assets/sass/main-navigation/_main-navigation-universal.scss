@@ -12,6 +12,7 @@ header.site_header span.stripe {
   width: 100%;
   background-color: #F4F4F4;
   z-index: 1500; // always on top !!!
+  transition: margin 0.5s ease-in-out;
 }
 header.site_header span.main-nav {
   position: absolute;
@@ -69,7 +70,7 @@ nav.site-nav {
   z-index: 1000;
   // background: #FFF;
   // border-bottom: 1px #000 solid;
-  transition: height 0.4s ease-in-out;
+  transition: height 0.25s ease-in-out;
   li a {
     padding: $main_gutter;
   }
@@ -81,7 +82,7 @@ nav.site-nav > span {
   width: 100%;
 
 }
-ul.mainNav hr {
+nav.site-nav hr {
   display: block;
   float: left;
   clear: both;
@@ -97,9 +98,13 @@ ul.subNav {
   float: left;
   clear: left;
   width: 100%;
+}
+ul.mainNav li,
+ul.subNav li,
+ul.mainNav hr {
   background-color: #FFF;
 }
-ul.subNav {
+ul.subNav li {
   background: #FCF;
 }
 
@@ -107,8 +112,7 @@ ul.subNav {
   mobile menu ON:
 ********************** */
 body.main_nav_on nav.site-nav {
-  transition: height 0.25s ease-in-out;
-  margin-bottom: pem( 40 );
+  transition: height 0.5s ease-in-out;
 }
 body.main_nav_on body > div.site {
   position: fixed;
@@ -116,4 +120,11 @@ body.main_nav_on body > div.site {
 body.main_nav_on span.mobile_shader {
   background-color: rgba(0, 0, 0, 0.6);
   transition: background-color 0.4s ease-in-out;
+}
+
+/* **********************
+  masthead HIDDEN:
+********************** */
+body.hiddenMasthead header.site_header span.stripe {
+  margin-top: -$nav-height-mobile;
 }

@@ -35,7 +35,7 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 
 	<header id="site_header" class="site_header">
 	  <div class="outside">
-	    <span class=stripe>
+	    <span id="mh-stripe" class=stripe>
 
 	      <span class="toggle_menu">
 	        <div class="line line-1"></div>

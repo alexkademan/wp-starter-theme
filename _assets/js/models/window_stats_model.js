@@ -1,3 +1,5 @@
+// app.windowStatus
+
 var Backbone = require ('backbone');
 var $ = require ('jquery');
 
@@ -12,6 +14,9 @@ module.exports = Backbone.Model.extend({
     documentWidth: $(document).width(),
     documentHeight: $(document).height(),
     vScrollPosition: $(document).scrollTop(),
+
+    vScrollLastPosition: 0,
+    vScrollDirection: '', // page scrolled 'up' or 'down'.
 
     fbFeedReady: false,
     fbFeed: '',

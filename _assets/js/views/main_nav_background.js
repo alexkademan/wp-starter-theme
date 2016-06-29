@@ -9,12 +9,8 @@ module.exports = Backbone.View.extend({
   lockBackground: function(backgroundScroll) {
 
     var bgStyle = '';
-
     bgStyle += 'position: fixed;';
     bgStyle += 'top: -' + backgroundScroll + 'px;';
-
-
-    // console.log( this.$el.offset() );
 
     this.$el.attr('style', bgStyle);
 

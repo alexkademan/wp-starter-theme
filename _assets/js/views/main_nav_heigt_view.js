@@ -6,19 +6,22 @@ var $ = require ('jquery');
 module.exports = Backbone.View.extend({
   el: '#site-nav',
 
-  openUp: function() {
-    this.model.set({ 'menuHeight': this.$('span').height() });
+  events: {
+    'click hr': 'closeMenu'
+  },
 
-    // $(document.body).attr('style', 'height: ' + this.model.get('menuHeight') + 'px');
+  openUp: function() {
+    // keep the masthead from disappearning:
+    app.mainNavModel.set({'mastheadShowing': 'protected'});
 
     // take note of scroll position, and lock the masthead to that spot:
     var backgroundScroll = app.windowStatusView.model.get('vScrollPosition');
     this.model.set({ 'backgroundScroll': backgroundScroll });
-
+    this.model.set({ 'menuHeight': this.$('span').height() });
 
     var navStyle = '';
-    navStyle += 'height: ' + this.model.get('menuHeight') + 'px;';
-    navStyle += 'top: ' + 0 + 'px;';
+        navStyle += 'height: ' + this.model.get('menuHeight') + 'px;';
+        navStyle += 'top: ' + 0 + 'px;';
 
     this.$el.attr('style', navStyle);
     window.scrollTo(0, 0); // make sure that the top of the nav is visible!!!!
@@ -29,20 +32,23 @@ module.exports = Backbone.View.extend({
   },
 
   closeDown: function() {
-
-    var navStyle = '';
-    navStyle += 'height: ' + 0 + 'px;';
-
-    this.$el.attr('style', navStyle);
-
     this.model.set({'menuHeight': 0});
+    // Don't bother running this on page load:
     if(this.model.get('backgroundScroll') !== ''){
-      // Don't bother running this on page load:
+
+      // keep the masthead from disappearning:
+      app.mainNavModel.set({'mastheadShowing': 'protected'});
+
+      var bgScroll = this.model.get('backgroundScroll');
+      var scrollPosition = $(window).scrollTop();
+          scrollPosition = bgScroll - scrollPosition;
+
       app.mainNavBackground.unlockBackground();
       window.scrollTo( 0, this.model.get('backgroundScroll') );
-      // console.log('closing now !#@!');
 
-      navStyle += 'top: ' + this.model.get('backgroundScroll') + 'px';
+      var navStyle = '';
+          navStyle += 'height: ' + 0 + 'px;';
+          navStyle += ' margin-top: ' + scrollPosition + 'px';
 
       this.$el.attr('style', navStyle);
 
@@ -51,6 +57,10 @@ module.exports = Backbone.View.extend({
 
   switchToLarger: function() {
     this.$el.removeAttr('style');
+  },
+
+  closeMenu: function() {
+    app.mainNav.model.set({'mobileMenu': false})
   }
 
 });

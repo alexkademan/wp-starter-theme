@@ -7,6 +7,7 @@ var $ = require ('jquery');
 var MainNavShader = require('./main_nav_shader_view');
 var MainMenuHeight = require('./main_nav_heigt_view');
 var NavBackground = require('./main_nav_background');
+var MastheadShowHide = require('./main_nav_masthead');
 
 module.exports = Backbone.View.extend({
 
@@ -28,6 +29,7 @@ module.exports = Backbone.View.extend({
     app.mainNavShader = new MainNavShader({model: this.model});
     app.mainMenuHeight = new MainMenuHeight({model: this.model});
     app.mainNavBackground = new NavBackground();
+    app.mainNavMasthead = new MastheadShowHide();
 
     this.breakpointChange(); // run this once to set the stage.
 
