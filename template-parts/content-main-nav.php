@@ -1,7 +1,6 @@
 <nav id="site-nav" class="site-nav">
-  <span><?php // this span is to get the height of the hidden menu via jquery 
-
-if(isset($GLOBALS['this_site']['sub_navigation'])) {
+  <span><?php // this span is to get the height of the hidden menu via jquery
+if(isset($GLOBALS['this_site']['navigation'])) {
 
   echo '<span class="mn">';
   echo  '<span>';
