@@ -15,7 +15,6 @@
 require get_template_directory() . '/custom-objects/custom-objects.php';
 
 
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -32,27 +31,18 @@ require get_template_directory() . '/custom-objects/custom-objects.php';
 
 <body <?php body_class(); ?>>
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
-
 	<header id="site_header" class="site_header">
-	  <div class="outside">
 	    <span id="mh-stripe" class=stripe>
-
 	      <span class="toggle_menu">
 	        <div class="line line-1"></div>
 	  			<div class="line line-2"></div>
 	  			<div class="line line-3"></div>
 	        <a class="toggle"></a>
 	      </span>
-
 	      <a class="site-title" href="<?php echo get_bloginfo('wpurl') ?>"><?php echo get_bloginfo('title') ?></a>
-
 	    </span>
-
 			<?php get_template_part( 'template-parts/content', 'main-nav' ); ?>
-
-	  </div>
-
 	</header>
-
 	<div id="page" class="site">
-	<div class="content">
+	<span class="main-bg">
+		<div class="content">
