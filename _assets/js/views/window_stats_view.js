@@ -49,6 +49,7 @@ module.exports = Backbone.View.extend({
     } else if (vScrollPosition < app.windowStatus.get('vScrollLastPosition')) {
       var dir = 'up';
     }
+    // send to the model if it has changed from what the model shows:
     if(dir && dir !== app.windowStatus.get('vScrollDirection')) {
       app.windowStatus.set({ vScrollDirection: dir });
     }

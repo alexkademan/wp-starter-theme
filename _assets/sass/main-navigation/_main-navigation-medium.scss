@@ -1,18 +1,15 @@
 div.content {
-  // body needs to clear the main nav:
-  padding-top: $nav-height-medium;
+  // an override:
+  padding-top: 0;
 }
 
+/* ***********************
+  basics
+*********************** */
 header.site_header {
-  background-color: #CCC;
   min-height: $nav-height-medium;
   span.toggle_menu {
     @include hidden;
-  }
-  div.outside {
-    // overflow: hidden;
-    min-height: $nav-height-medium;
-    @include outer-container;
   }
 
   li,
@@ -21,25 +18,30 @@ header.site_header {
     clear: none;
   }
 }
+header.site_header span.stripe {
+  z-index: auto;
+  display: block;
+  width: auto;
+  height: 0;
+  background-color: #CCC;
+  position: relative;
+  transition: margin 0;
+
+  @include outer-container;
+}
 a.site-title {
   position: absolute;
   left: 0;
   top: 0;
   z-index: 10;
 
-  background-color: #FCF;
+  background-color: #CCC;
 
   width: $main_logo_width;
   height: $main_logo_width;
 
 }
 
-span.stripe {
-  // this is for the menu to hide behind.
-  position: relative;
-  width: auto;
-  height: auto;
-}
 nav.site-nav {
   // overriding all of the palm sized styles:
   display: block;
@@ -52,35 +54,57 @@ nav.site-nav {
   z-index: 0; // must fall behind a.site-title.
   min-height: $nav-height-medium;
   border-bottom: none;
+  overflow: visible;
 }
 
-nav.site-nav > span {
-  position: relative;
+nav.site-nav span.mn,
+nav.site-nav span.sn {
+  float: none;
+  clear: none;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  // background: #FCF;
+  border-bottom: 1px #999 solid;
+
+  & > span {
+    display: block;
+    padding-left: $nav-height-medium;
+    @include outer-container;
+  }
 }
 
-ul.mainNav {
-
-  // background-color: #FCF;
-  li,
-  li a {
-    line-height: $nav-height-medium;
-    padding: 0 $main_gutter;
-    .no-touchevents &:hover {
-      background: #f4f4f4;
-    }
+nav.site-nav span.mn {
+  background-color: #F4F4F4;
+}
+ul.mainNav li a {
+  line-height: $nav-height-main-medium;
+  .no-touchevents &:hover {
+    background: #CCC;
   }
-
-  li:first-child {
-    margin-left: $main_logo_width;
-  }
+}
+ul.mainNav li a,
+ul.subNav li a {
+  background-color: transparent;
+  padding: 0 $main_gutter;
 }
 
 ul.subNav {
+  float: right;
   background-color: transparent;
   width: auto;
   display: block;
 
-  float: right;
-  clear: none;
-
+}
+ul.subNav li a {
+  line-height: $nav-height-sub-medium;
+  .no-touchevents &:hover {
+    background: #f4f4f4;
+  }
+}
+/* **********************
+  masthead HIDDEN:
+********************** */
+body.hiddenMasthead header.site_header span.stripe {
+  margin-top: 0;
 }

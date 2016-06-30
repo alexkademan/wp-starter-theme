@@ -7,7 +7,7 @@ module.exports = Backbone.View.extend({
   el: '#site-nav',
 
   events: {
-    'click hr': 'closeMenu'
+    'click': 'clickOutsideMenu'
   },
 
   openUp: function() {
@@ -61,6 +61,14 @@ module.exports = Backbone.View.extend({
 
   closeMenu: function() {
     app.mainNav.model.set({'mobileMenu': false})
+  },
+
+  clickOutsideMenu: function(e) {
+    // this method will fire if the padding at the
+    // bottom of the navigation is clicked on.
+    if(e.target.className === 'sn'){
+      this.closeMenu();
+    }
   }
 
 });

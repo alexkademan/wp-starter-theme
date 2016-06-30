@@ -2598,7 +2598,7 @@ a.site-title {
   vertical-align: bottom;
   float: left;
   clear: none;
-  width: 7.1875em;
+  width: 7.5em;
   height: 3.75em; }
 
 span.mobile_shader {
@@ -2633,14 +2633,20 @@ nav.site-nav > span {
   bottom: 0;
   width: 100%; }
 
-nav.site-nav hr {
+nav.site-nav span.mn,
+nav.site-nav span.sn {
   display: block;
   float: left;
   clear: both;
-  width: 100%;
-  border: 0;
-  margin: 0;
-  height: 3.75em; }
+  width: 100%; }
+
+nav.site-nav span.mn {
+  padding-top: 3.75em;
+  background-color: #FFF; }
+
+nav.site-nav span.sn {
+  padding-bottom: 3.75em;
+  background-color: transparent; }
 
 ul.mainNav,
 ul.subNav {
@@ -2649,13 +2655,12 @@ ul.subNav {
   clear: left;
   width: 100%; }
 
-ul.mainNav li,
-ul.subNav li,
-ul.mainNav hr {
+ul.mainNav li a,
+ul.subNav li a {
   background-color: #FFF; }
 
-ul.subNav li {
-  background: #FCF; }
+ul.subNav li a {
+  background: #CCC; }
 
 /* **********************
   mobile menu ON:
@@ -2736,38 +2741,43 @@ body.main_nav_on span.toggle_menu .line-3 {
 
 @media (min-width: 45em) {
   div.content {
-    padding-top: 4.6875em; }
+    padding-top: 0; }
+  /* ***********************
+  basics
+*********************** */
   header.site_header {
-    background-color: #CCC;
-    min-height: 4.6875em; }
+    min-height: 7.5em; }
     header.site_header span.toggle_menu {
       display: none !important;
       visibility: hidden; }
-    header.site_header div.outside {
-      min-height: 4.6875em;
-      max-width: 75em;
-      margin-left: auto;
-      margin-right: auto; }
-      header.site_header div.outside::after {
-        clear: both;
-        content: "";
-        display: block; }
     header.site_header li,
     header.site_header li a {
       width: auto;
       clear: none; }
+  header.site_header span.stripe {
+    z-index: auto;
+    display: block;
+    width: auto;
+    height: 0;
+    background-color: #CCC;
+    position: relative;
+    -webkit-transition: margin 0;
+    transition: margin 0;
+    max-width: 75em;
+    margin-left: auto;
+    margin-right: auto; }
+    header.site_header span.stripe::after {
+      clear: both;
+      content: "";
+      display: block; }
   a.site-title {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 10;
-    background-color: #FCF;
-    width: 7.1875em;
-    height: 7.1875em; }
-  span.stripe {
-    position: relative;
-    width: auto;
-    height: auto; }
+    background-color: #CCC;
+    width: 7.5em;
+    height: 7.5em; }
   nav.site-nav {
     display: block;
     position: relative;
@@ -2777,30 +2787,74 @@ body.main_nav_on span.toggle_menu .line-3 {
     width: 100%;
     background: transparent;
     z-index: 0;
-    min-height: 4.6875em;
-    border-bottom: none; }
-  nav.site-nav > span {
-    position: relative; }
-  ul.mainNav li,
+    min-height: 7.5em;
+    border-bottom: none;
+    overflow: visible; }
+  nav.site-nav span.mn,
+  nav.site-nav span.sn {
+    float: none;
+    clear: none;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    border-bottom: 1px #999 solid; }
+    nav.site-nav span.mn > span,
+    nav.site-nav span.sn > span {
+      display: block;
+      padding-left: 7.5em;
+      max-width: 75em;
+      margin-left: auto;
+      margin-right: auto; }
+      nav.site-nav span.mn > span::after,
+      nav.site-nav span.sn > span::after {
+        clear: both;
+        content: "";
+        display: block; }
+  nav.site-nav span.mn {
+    background-color: #F4F4F4; }
   ul.mainNav li a {
-    line-height: 4.6875em;
+    line-height: 4.375em; }
+    .no-touchevents ul.mainNav li a:hover {
+      background: #CCC; }
+  ul.mainNav li a,
+  ul.subNav li a {
+    background-color: transparent;
     padding: 0 1.2135em; }
-    .no-touchevents ul.mainNav li:hover, .no-touchevents
-    ul.mainNav li a:hover {
-      background: #f4f4f4; }
-  ul.mainNav li:first-child {
-    margin-left: 7.1875em; }
   ul.subNav {
+    float: right;
     background-color: transparent;
     width: auto;
-    display: block;
-    float: right;
-    clear: none; } }
+    display: block; }
+  ul.subNav li a {
+    line-height: 3.125em; }
+    .no-touchevents ul.subNav li a:hover {
+      background: #f4f4f4; }
+  /* **********************
+  masthead HIDDEN:
+********************** */
+  body.hiddenMasthead header.site_header span.stripe {
+    margin-top: 0; } }
+
+html,
+body {
+  background: #F4F4F4; }
+
+body > div.site,
+body > div.site > .main-bg {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%; }
+
+body > div.site > .main-bg {
+  background: #FFF; }
 
 div.content,
 .site-footer {
   padding-left: 1.2135em;
   padding-right: 1.2135em;
+  display: block;
+  clear: both;
   max-width: 75em;
   margin-left: auto;
   margin-right: auto; }
@@ -2809,6 +2863,10 @@ div.content,
     clear: both;
     content: "";
     display: block; }
+
+.site-footer {
+  padding-top: 1.2135em;
+  padding-bottom: 4.375em; }
 
 .left-col,
 .full-width,

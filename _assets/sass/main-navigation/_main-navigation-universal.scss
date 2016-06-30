@@ -82,16 +82,21 @@ nav.site-nav > span {
   width: 100%;
 
 }
-nav.site-nav hr {
+nav.site-nav span.mn,
+nav.site-nav span.sn {
   display: block;
   float: left;
   clear: both;
   width: 100%;
-  border: 0;
-  margin: 0;
-  height: $nav-height-mobile;
 }
-
+nav.site-nav span.mn {
+  padding-top: $nav-height-mobile;
+  background-color: #FFF;
+}
+nav.site-nav span.sn {
+  padding-bottom: $nav-height-mobile;
+  background-color: transparent;
+}
 ul.mainNav,
 ul.subNav {
   display: block;
@@ -99,13 +104,12 @@ ul.subNav {
   clear: left;
   width: 100%;
 }
-ul.mainNav li,
-ul.subNav li,
-ul.mainNav hr {
+ul.mainNav li a,
+ul.subNav li a {
   background-color: #FFF;
 }
-ul.subNav li {
-  background: #FCF;
+ul.subNav li a {
+  background: #CCC;
 }
 
 /* **********************
