@@ -14,7 +14,7 @@ $medium-breakpoint: 'min-width: ' + $small_size;
 $large-breakpoint: 'min-width: ' + $large_size;
 
 // Typography
-@include font-face( capture-it, '../fonts/Capture_it-webfont' );
+@include font-face( capture-it, '../fonts/capture_it-webfont' );
 $base-font-family: $font-stack-system;
 
 // Font Sizes

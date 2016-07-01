@@ -194,7 +194,7 @@ html {
 /* 640px */
 @font-face {
   font-family: capture-it;
-  src: url("../fonts/Capture_it-webfont.woff2") format("woff2"), url("../fonts/Capture_it-webfont.woff") format("woff"), url("../fonts/Capture_it-webfont.ttf") format("truetype"); }
+  src: url("../fonts/capture_it-webfont.woff2") format("woff2"), url("../fonts/capture_it-webfont.woff") format("woff"), url("../fonts/capture_it-webfont.ttf") format("truetype"); }
 
 button, [type='button'], [type='reset'], [type='submit'] {
   -webkit-appearance: none;
